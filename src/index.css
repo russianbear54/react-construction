@@ -2,60 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .card {
-    width: 35rem;
-    height: 20rem;
-  }
 
-
-
-
-
-  .standingFor {
-    margin: 10rem;
-    font-size: 3rem;
-    color: white;
-    animation: slideSF 1s .7s forwards;
-  }
-
-  .excellence {
-    margin: 10rem;
-    font-size: 3rem;
-    color: white;
-    animation: slideEx 1s .7s forwards;
-
-  }
-
-  @keyframes slideSF {
-    0%{
-      transform: translateX(50rem);
-      opacity: 0;
-
-    }
-
-    100%{
-      transform: translateX(0);
-      opacity: 1;
-
-    }
-  }
-
-  @keyframes slideEx {
-    0%{
-      transform: translateX(-80rem);
-      opacity: 0;
-
-    }
-
-    100%{
-      transform: translateX(0);
-      opacity: 1;
-
-    }
-  }
-
-}
 
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;

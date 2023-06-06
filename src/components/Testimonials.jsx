@@ -1,33 +1,46 @@
 import React from "react";
 import { testimonials } from "../constants";
 // import TestimonialCard from "material-testimonial-card";
+import { Card, CardContent, Typography, Avatar, Box } from "@mui/material";
+import SectionHeading from "./SectionHeading";
+import { headings } from "../constants";
 
 const TestimonialCard = ({ testimonial, name, designation, company, image }) => {
   return (
-    <div className="w-[25rem] h-[20rem] flex flex-col justify-around items-center bg-slate-300">
-      <img src={image} className="h-20 w-20 object-cover rounded-full" />
-      <p>{testimonial}</p>
-      <p>{name}</p>
-      <p>{designation}</p>
-      <p>{company}</p>
-    </div>
+    <Card sx={{ width: "25rem", height: "20rem" }}>
+      <CardContent>
+        <Box display="flex" alignItems="center" mb={2}>
+          <Avatar sx={{ width: 80, height: 80 }} src={image} alt={name} />
+          <Box ml={2}>
+            <Typography variant="h6" gutterBottom>
+              {name}
+            </Typography>
+            <Typography variant="h6" gutterBottom>
+              {designation}
+            </Typography>
+            <Typography variant="subtitle2" color="textSecondary">
+              {company}
+            </Typography>
+          </Box>
+        </Box>
+        <Typography variant="body1" paragraph>
+          "{testimonial}"
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };
 
 const Testimonials = () => {
   return (
-    <div className="flex flex-row justify-center gap-[1rem] mt-[10rem] mb-[20rem]">
-      {testimonials.map((testimonial) => (
-        <TestimonialCard
-          name={testimonial.name}
-          key={testimonial.id}
-          image={testimonial.image}
-          testimonial={testimonial.testimonial}
-          company={testimonial.company}
-          designation={testimonial.designation}
-        />
-      ))}
-    </div>
+    <>
+      <SectionHeading title={headings[2].title} description={headings[2].description} />
+      <div id="testimonials" className="flex flex-row justify-around gap-[1rem]">
+        {testimonials.map((testimonial) => (
+          <TestimonialCard key={testimonial.id} {...testimonial} />
+        ))}
+      </div>
+    </>
   );
 };
 

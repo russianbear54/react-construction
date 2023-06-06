@@ -1,39 +1,97 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
+import { AppBar, Box, Button, Toolbar, IconButton, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import StandForLogo from "../assets/logo/logo-transparent-svg.svg";
 import { navLinks } from "../constants";
-import logo from "../assets/logo.svg";
+import { styled } from "@mui/system";
+
+const Logo = styled("img")(({ theme }) => ({
+  width: "100%", // Default to full width
+  height: "auto", // Maintain aspect ratio
+  maxWidth: "300px", // Maximum logo width
+  alignSelf: "center", // Center the logo vertically
+  [theme.breakpoints.up("sm")]: {
+    maxWidth: "250px",
+  },
+  [theme.breakpoints.up("md")]: {
+    maxWidth: "250px",
+  },
+  [theme.breakpoints.up("lg")]: {
+    maxWidth: "250px",
+  },
+}));
 
 const NavBar = () => {
   const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
 
   return (
-    <nav className="w-full flex items-center py-5 fixed top-0 z-20">
-      <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
-        <Link
-          to="/"
-          className="flex items-center gap-2"
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0);
+    <AppBar>
+      <Toolbar
+        variant="dense"
+        sx={{
+          justifyContent: "center", // Center the items
+          alignItems: "center", // Center items vertically
+          width: "100%",
+          position: "fixed",
+          zIndex: 5,
+          flexWrap: { md: "no-wrap" },
+          flexDirection: { sm: "column", md: "row" }, // Change direction to column on small screens
+        }}>
+        <Logo src={StandForLogo} alt="StandFor Logo" />
+
+        <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2, display: { sm: "none" } }} onClick={handleDrawerOpen}>
+          <MenuIcon />
+        </IconButton>
+
+        <Box
+          sx={{
+            display: { md: "flex", sm: "flex", xs: "none" },
+            justifyContent: { md: "end", sm: "center" },
+            width: "100%",
           }}>
-          <img src={logo} alt="logo" className="w-15 h-9 object-contain" />
-          <p className="uppercase text-[18px] font-bold cursor-pointer flex">Excellence since 2001</p>
-        </Link>
-        <ul className="list-none hidden sm:flex flex-row gap-10">
           {navLinks.map((link) => (
-            <li
-              key={link.id}
-              className={`${
-                active === link.value ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer uppercase`}
-              onClick={() => setActive(link.value)}>
-              <a href={`#${link.id}`}>{link.value}</a>
-            </li>
+            <ScrollLink to={link.id} spy={true} smooth={true} offset={-70} duration={500} key={link.id}>
+              <Button
+                sx={{ minWidth: "7rem" }}
+                variant="contained"
+                onClick={() => {
+                  setActive(link.value);
+                }}
+                className={active === link.value ? "active" : ""}>
+                {link.value}
+              </Button>
+            </ScrollLink>
           ))}
-        </ul>
-      </div>
-    </nav>
+        </Box>
+
+        <Drawer anchor="right" open={open} onClose={handleDrawerClose}>
+          <List>
+            {navLinks.map((link) => (
+              <ListItem button key={link.id} onClick={handleDrawerClose}>
+                <ScrollLink to={link.id} spy={true} smooth={true} offset={-70} duration={500}>
+                  <ListItemText
+                    primary={link.value}
+                    onClick={() => {
+                      setActive(link.value);
+                    }}
+                  />
+                </ScrollLink>
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+      </Toolbar>
+    </AppBar>
   );
 };
 

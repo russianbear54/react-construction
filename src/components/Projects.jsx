@@ -4,33 +4,33 @@ import { projectsPreview } from "../constants/index";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import Sheet from "@mui/joy/Sheet";
-import ResidentialProjects from "./lists/ResidentialProjects";
-import CommercialProjects from "./lists/CommercialProjects";
-import RetailProjects from "./lists/RetailProjects";
 import BackGround from "../assets/videos/topView.mp4";
-import Stack from "@mui/material/Stack";
+import ProjectCarousel from "../components/ProjectCarousel";
+import SectionHeading from "./SectionHeading";
+import { headings } from "../constants";
 
-const ProjectPreview = ({ name, image }) => {
+const ProjectPreview = ({ type, image }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   let component;
-  if (name === "Residential Projects") {
-    component = <ResidentialProjects />;
+
+  if (type === "Residential") {
+    component = <ProjectCarousel type="Residential" />;
   }
-  if (name === "Commercial Projects") {
-    component = <CommercialProjects />;
+  if (type === "Commercial") {
+    component = <ProjectCarousel type="Commercial" />;
   }
-  if (name === "Retail Projects") {
-    component = <RetailProjects />;
+  if (type === "Retail") {
+    component = <ProjectCarousel type="Retail" />;
   }
 
   return (
-    <div className="flex flex-col gap-[3rem]">
+    <div className="flex md:flex-col md:mx-[1rem] md:items-center sm:flex-col sm:items-center">
       <img
         src={image}
-        className="w-[40rem] h-[27rem] 2xl:w-[35rem] 2xl:h-[20rem] xl:w-[30rem] xl:h-[18rem] lg:w-[25rem] lg:h-[15rem] md:w-[20rem] md:h-[10rem] sm:w-[10rem] sm:h-[7rem] object-cover"
+        className="w-[40rem] h-[27rem] 2xl:w-[35rem] 2xl:h-[20rem] xl:w-[30rem] xl:h-[18rem] lg:w-[25rem] lg:h-[15rem] md:w-[20rem] md:h-[10rem] sm:w-[80%] sm:h-[100%] object-cover"
       />
-      <p className="text-3xl text-white">{name}</p>
+      <p className="text-3xl text-black my-4">{type}</p>
       <Button variant="contained" onClick={() => setModalOpen(true)}>
         View Projects
       </Button>
@@ -65,9 +65,10 @@ const ProjectPreview = ({ name, image }) => {
 const Projects = () => {
   return (
     <>
-      <div className="relative">
-        <video src={BackGround} type="video/mp4" autoPlay muted loop className="w-full" />
-        <div className="w-full flex flex-row justify-center gap-[3rem] absolute top-1/3 ">
+      <SectionHeading title={headings[1].title} description={headings[1].description} />
+      <div id="projects" className="relative">
+        <video src={BackGround} type="video/mp4" autoPlay muted loop playsInline className="w-full sm:hidden" />
+        <div className="w-full flex xl:flex-row justify-center gap-[3rem]  top-1/3 sm:flex-col ">
           {projectsPreview.map((projectPreview) => (
             <ProjectPreview key={projectPreview.id} {...projectPreview} />
           ))}
@@ -78,5 +79,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
-//border-dashed border-2 border-sky-500

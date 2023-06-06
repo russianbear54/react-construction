@@ -4,19 +4,29 @@ import BorisBalkan from "../assets/images/testimonials/boris-balkan.jpg";
 
 const navLinks = [
   { id: "home", value: "home" },
-  { id: "vision", value: "vision" },
   { id: "services", value: "services" },
   { id: "projects", value: "projects" },
-  { id: "commitment", value: "commitment" },
+  { id: "testimonials", value: "testimonials" },
   { id: "contact", value: "contact" },
 ];
+
+const headings = [
+  { id: "services", title: "Our Services", description: "Explore the wide range of services that we offer." },
+  { id: "projects", title: "Our Projects", description: "Browse through our recent and current endeavours." },
+  { id: "testimonials", title: "Testimonials", description: "The reputation that we earned." },
+  { id: "contact", title: "Contact Us", description: "Lets get in rouch and start building dreams." },
+];
+
+const headings2 = {};
+
+// image: "../src/assets/images/services/generalConstruction/crew.jpg"
 
 const services = [
   {
     id: "general",
     heading: "General Construction",
     text: "With over 20 years of experience we are ready to build your dreams!",
-    image: "../src/assets/images/services/general consruction/crew.jpg",
+    image: "../src/assets/images/services/generalConstruction/crew.jpg",
   },
   {
     id: "landscaping",
@@ -57,7 +67,7 @@ const testimonials = [
   },
   {
     id: 3,
-    testimonial: "The new book valut is devlishly good!",
+    testimonial: "The new book vault is devlishly good!",
     name: "Boris Balkan",
     designation: "Founder/CEO",
     company: "Balkan Enterprises",
@@ -66,108 +76,40 @@ const testimonials = [
 ];
 
 const projectsPreview = [
-  { id: 1, name: "Residential Projects", image: "../src/assets/images/projects/houses/house2.jpg" },
-  { id: 2, name: "Commercial Projects", image: "../src/assets/images/projects/buildings/building4.jpg" },
-  { id: 3, name: "Retail Projects", image: "../src/assets/images/projects/retailCenters/retail6.jpg" },
+  { id: 1, type: "Residential", image: "../src/assets/images/projects/houses/house2.jpg" },
+  { id: 2, type: "Commercial", image: "../src/assets/images/projects/buildings/building4.jpg" },
+  { id: 3, type: "Retail", image: "../src/assets/images/projects/retailCenters/retail6.jpg" },
 ];
 
 const residentialProjects = [
-  { id: 1, name: "Two Story House", location: "Santa Barbara, CA", year: "2018", image: "../src/assets/images/projects/houses/house4.jpg" },
+  { id: 1, type: "Two Story House", location: "Santa Barbara, CA", year: "2018", image: "../src/assets/images/projects/houses/house4.jpg" },
   {
     id: 2,
-    name: "Two Story House With a Pool",
+    type: "Two Story House With a Pool",
     location: "Hollywood Hills, CA",
     year: "2019",
     image: "../src/assets/images/projects/houses/house3.jpg",
   },
-  { id: 3, name: "Two Story House", location: "San Jose, CA", year: "2018", image: "../src/assets/images/projects/houses/house2.jpg" },
-  { id: 4, name: "Three Story House", location: "Los Angeles, CA", year: "2018", image: "../src/assets/images/projects/houses/house.jpg" },
-  { id: 5, name: "Two Story House", location: "Santa Rosa, CA", year: "2023", image: "../src/assets/images/projects/houses/house5.jpg" },
+  { id: 3, type: "Two Story House", location: "San Jose, CA", year: "2018", image: "../src/assets/images/projects/houses/house2.jpg" },
+  { id: 4, type: "Three Story House", location: "Los Angeles, CA", year: "2018", image: "../src/assets/images/projects/houses/house.jpg" },
+  { id: 5, type: "Two Story House", location: "Santa Rosa, CA", year: "2023", image: "../src/assets/images/projects/houses/house5.jpg" },
 ];
 
 const commercialProjects = [
-  { id: 1, name: "Fitness Center", location: "San Dimas, CA", year: "2023", image: "../src/assets//images/projects/buildings/building5.jpg" },
-  { id: 2, name: "Administrative Building", location: "Barstow, CA", year: "2023", image: "../src/assets//images/projects/buildings/building4.jpg" },
-  { id: 3, name: "Administrative Building", location: "Bishop, CA", year: "2023", image: "../src/assets//images/projects/buildings/project4.jpeg" },
-  { id: 4, name: "Apartment Building", location: "Los Angeles, CA", year: "2023", image: "../src/assets//images/projects/buildings/building3.jpg" },
-  { id: 5, name: "Campus Library", location: "Berkley, CA", year: "2023", image: "../src/assets/images/projects/buildings/building6.jpg" },
+  { id: 1, type: "Fitness Center", location: "San Dimas, CA", year: "2023", image: "../src/assets//images/projects/buildings/building5.jpg" },
+  { id: 2, type: "Administrative Building", location: "Barstow, CA", year: "2023", image: "../src/assets//images/projects/buildings/building4.jpg" },
+  { id: 3, type: "Administrative Building", location: "Bishop, CA", year: "2023", image: "../src/assets//images/projects/buildings/project4.jpeg" },
+  { id: 4, type: "Apartment Building", location: "Los Angeles, CA", year: "2023", image: "../src/assets//images/projects/buildings/building3.jpg" },
+  { id: 5, type: "Campus Library", location: "Berkley, CA", year: "2023", image: "../src/assets/images/projects/buildings/building6.jpg" },
 ];
 
 const retailProjects = [
-  { id: 1, name: "Retail Center", location: "Thousand Oaks, CA", year: "2019", image: "../src/assets//images/projects/retailCenters/retail5.jpg" },
-  { id: 2, name: "Strip Mall", location: "Camarillo, CA", year: "2020", image: "../src/assets/images/projects/retailCenters/retail6.jpg" },
-  { id: 3, name: "Strip Mall", location: "Oxnard, CA", year: "2023", image: "../src/assets/images/projects/retailCenters/retail4.jpeg" },
-  { id: 4, name: "Retail Store", location: "Victorville, CA", year: "2023", image: "../src/assets/images/projects/retailCenters/retail3.jpg" },
-  { id: 5, name: "Retail Center", location: "Westwood, CA", year: "2024", image: "../src/assets/images/projects/retailCenters/retail2.jpg" },
-  { id: 6, name: "Strip Mall", location: "Barstow, CA", year: "2023", image: "../src/assets/images/projects/retailCenters/retail1.jpg" },
+  { id: 1, type: "Retail Center", location: "Thousand Oaks, CA", year: "2019", image: "../src/assets//images/projects/retailCenters/retail5.jpg" },
+  { id: 2, type: "Strip Mall", location: "Camarillo, CA", year: "2020", image: "../src/assets/images/projects/retailCenters/retail6.jpg" },
+  { id: 3, type: "Strip Mall", location: "Oxnard, CA", year: "2023", image: "../src/assets/images/projects/retailCenters/retail4.jpeg" },
+  { id: 4, type: "Retail Store", location: "Victorville, CA", year: "2023", image: "../src/assets/images/projects/retailCenters/retail3.jpg" },
+  { id: 5, type: "Retail Center", location: "Westwood, CA", year: "2024", image: "../src/assets/images/projects/retailCenters/retail2.jpg" },
+  { id: 6, type: "Strip Mall", location: "Barstow, CA", year: "2023", image: "../src/assets/images/projects/retailCenters/retail1.jpg" },
 ];
 
-// const residentialProjectsCompleted = [
-//   { name: "Two Story House", location: "Santa Barbara, CA", year: "2018", image: "../images/projects/houses/house4.jpg" },
-//   { name: "Two Story House With a Pool", location: "Hollywood Hills, CA", year: "2019", image: "../images/projects/houses/house3.jpg" },
-//   { name: "Two Story House", location: "San Jose, CA", year: "2018", image: "../images/projects/houses/house2.jpg" },
-//   { name: "Three Story House", location: "Los Angeles, CA", year: "2018", image: "../images/projects/houses/house.jpg" },
-// ];
-
-// const residentialProjectsPending = [
-//   { name: "Two Story House", location: "Santa Rosa, CA", year: "2023", image: "../images/projects/houses/house5.jpg" },
-// ];
-
-// const commercialProjectsCompleted = [
-//   { name: "Fitness Center", location: "San Dimas, CA", year: "2023", image: "../images/projects/buildings/building5.jpg" },
-//   { name: "Administrative Building", location: "Barstow, CA", year: "2023", image: "../images/projects/buildings/building4.jpg" },
-// ];
-
-// const commercialProjectsPending = [
-//   { name: "Administrative Building", location: "Bishop, CA", year: "2023", image: "../images/projects/buildings/building4.jpg" },
-//   { name: "Apartment Building", location: "Los Angeles, CA", year: "2023", image: "../images/projects/buildings/building3.jpg" },
-//   { name: "Campus Library", location: "Berkley, CA", year: "2023", image: "../images/projects/buildings/building6.jpg" },
-// ];
-
-// const retailProjectsCompleted = [
-//   { name: "Retail Center", location: "Thousand Oaks, CA", year: "2019", image: "../images/projects/retailCenters/retail5.jpg" },
-//   { name: "Strip Mall", location: "Camarillo, CA", year: "2020", image: "../images/projects/retailCenters/retail6.jpg" },
-// ];
-// const retailProjectsPending = [
-//   { name: "Strip Mall", location: "Oxnard, CA", year: "2023", image: "../images/projects/retailCenters/retail4.jpg" },
-//   { name: "Retail Store", location: "Victorville, CA", year: "2023", image: "../images/projects/retailCenters/retail3.jpg" },
-//   { name: "Retail Center", location: "Westwood, CA", year: "2024", image: "../images/projects/retailCenters/retail2.jpg" },
-//   { name: "Strip Mall", location: "Barstow, CA", year: "2023", image: "../images/projects/retailCenters/retail1.jpg" },
-// ];
-
-export { navLinks, testimonials, residentialProjects, commercialProjects, retailProjects, projectsPreview, services };
-
-// const projects = {
-//   commercial: {
-//     completed: [
-//       { name: "Fitness Center", location: "San Dimas, CA", year: "2023", image: "../images/projects/buildings/building5.jpg" },
-//       { name: "Administrative Building", location: "Barstow, CA", year: "2023", image: "../images/projects/buildings/building4.jpg" },
-//     ],
-//     underway: [
-//       { name: "Administrative Building", location: "Bishop, CA", year: "2023", image: "../images/projects/buildings/building4.jpg" },
-//       { name: "Apartment Building", location: ":ps Angeles, CA", year: "2023", image: "../images/projects/buildings/building3.jpg" },
-//       { name: "Campus Library", location: "Berkley, CA", year: "2023", image: "../images/projects/buildings/building6.jpg" },
-//     ],
-//   },
-//   residential: {
-//     completed: [
-//       { name: "Two Story House", location: "Santa Barbara, CA", year: "2018", image: "../images/projects/houses/house4.jpg" },
-//       { name: "Two Story House With a Pool", location: "Hollywood Hills, CA", year: "2019", image: "../images/projects/houses/house3.jpg" },
-//       { name: "Two Story House", location: "San Jose, CA", year: "2018", image: "../images/projects/houses/house2.jpg" },
-//       { name: "Three Story House", location: "Los Angeles, CA", year: "2018", image: "../images/projects/houses/house.jpg" },
-//     ],
-//     underway: { name: "Two Story House", location: "Santa Rosa, CA", year: "2023", image: "../images/projects/houses/house5.jpg" },
-//   },
-//   retail: {
-//     completed: [
-//       { name: "Retail Center", location: "Thousand Oaks, CA", year: "2019", image: "../images/projects/retailCenters/retail5.jpg" },
-//       { name: "Strip Mall", location: "Camarillo, CA", year: "2020", image: "../images/projects/retailCenters/retail6.jpg" },
-//     ],
-//     underway: [
-//       { name: "Strip Mall", location: "Oxnard, CA", year: "2023", image: "../images/projects/retailCenters/retail4.jpg" },
-//       { name: "Retail Store", location: "Victorville, CA", year: "2023", image: "../images/projects/retailCenters/retail3.jpg" },
-//       { name: "Retail Center", location: "Westwood, CA", year: "2024", image: "../images/projects/retailCenters/retail2.jpg" },
-//       { name: "Strip Mall", location: "Barstow, CA", year: "2023", image: "../images/projects/retailCenters/retail1.jpg" },
-//     ],
-//   },
-// };
+export { navLinks, testimonials, residentialProjects, commercialProjects, retailProjects, projectsPreview, services, headings };
