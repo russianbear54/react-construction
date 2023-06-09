@@ -7,10 +7,10 @@ import { navLinks } from "../constants";
 import { styled } from "@mui/system";
 
 const Logo = styled("img")(({ theme }) => ({
-  width: "100%", // Default to full width
-  height: "auto", // Maintain aspect ratio
-  maxWidth: "300px", // Maximum logo width
-  alignSelf: "center", // Center the logo vertically
+  width: "100%",
+  height: "auto",
+  maxWidth: "300px",
+  alignSelf: "center",
   [theme.breakpoints.up("sm")]: {
     maxWidth: "250px",
   },
@@ -39,13 +39,13 @@ const NavBar = () => {
       <Toolbar
         variant="dense"
         sx={{
-          justifyContent: "center", // Center the items
-          alignItems: "center", // Center items vertically
+          justifyContent: "center",
+          alignItems: "center",
           width: "100%",
           position: "fixed",
           zIndex: 5,
           flexWrap: { md: "no-wrap" },
-          flexDirection: { sm: "column", md: "row" }, // Change direction to column on small screens
+          flexDirection: { sm: "column", md: "row" },
         }}>
         <Logo src={StandForLogo} alt="StandFor Logo" />
 

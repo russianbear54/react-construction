@@ -1,36 +1,55 @@
-import React from "react";
-import { Card, CardContent, CardMedia, Typography, Grid } from "@mui/material";
+import React, { useState } from "react";
+import { Card, CardContent, CardMedia, Typography, Grid, Container } from "@mui/material";
 import { services, headings } from "../constants";
 import SectionHeading from "./SectionHeading";
 
 const Service = ({ id, heading, text, image }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <Card
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       sx={{
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        height: 750,
-        width: 750,
-        margin: "auto",
+        objectFit: "cover",
+        width: { lg: "35rem", sm: "20rem" },
+        height: { lg: "35rem", sm: "20rem" },
+        position: "relative",
+        overflow: "hidden",
       }}>
+      <Typography variant="h5">{heading}</Typography>
       <CardMedia
         component="img"
         image={image}
         alt={id}
         sx={{
-          height: 500,
-          width: 500,
-          objectFit: "cover",
-          marginTop: "2rem",
+          marginTop: "1rem",
+          width: { sm: "15rem", lg: "31rem" },
+          height: { sm: "15rem", lg: "31rem" },
+          // opacity: isHovered ? 0.5 : 1,
+          filter: isHovered ? "grayscale(100%)" : "none",
+          transition: "background-color 0.3s ease",
         }}
       />
-      <CardContent sx={{ textAlign: "center" }}>
-        <Typography variant="h5">{heading}</Typography>
-        <Typography variant="body2" color="text.secondary">
-          {text}
-        </Typography>
+      <CardContent
+        sx={{
+          textAlign: "center",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          color: isHovered ? "#fff" : "transparent",
+        }}>
+        <Typography variant="h5">{text}</Typography>
       </CardContent>
     </Card>
   );
@@ -38,18 +57,18 @@ const Service = ({ id, heading, text, image }) => {
 
 const Services = () => {
   return (
-    <>
+    <div id="services">
       <SectionHeading title={headings[0].title} description={headings[0].description} />
-      <div id="services">
-        <Grid container spacing={4}>
+      <Container sx={{ display: "flex", justifyContent: "center" }}>
+        <Grid container spacing={2}>
           {services.map((service) => (
             <Grid item key={service.id} xs={12} sm={6} md={6} lg={6}>
               <Service {...service} />
             </Grid>
           ))}
         </Grid>
-      </div>
-    </>
+      </Container>
+    </div>
   );
 };
 

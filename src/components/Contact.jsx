@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, Button, Box } from "@mui/material";
+import { TextField, Button, Container } from "@mui/material";
 import SectionHeading from "./SectionHeading";
 import { headings } from "../constants";
 import craneFeet from "../assets/images/scenery/craneFeet.jpg";
@@ -25,15 +25,15 @@ const Contact = () => {
   return (
     <>
       <SectionHeading title={headings[3].title} description={headings[3].description} />
-      <div
+      <Container
         id="contact"
-        className="flex flex-row justify-center"
-        style={{
+        maxWidth="md"
+        sx={{
           backgroundImage: `url(${craneFeet})`,
-          backgroundSize: "50%",
+          backgroundSize: "100%",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          height: "65rem",
+          height: { lg: "65rem" },
         }}>
         <form onSubmit={handleSubmit} style={{ padding: "5rem" }}>
           <TextField label="Name" variant="filled" fullWidth value={name} onChange={(e) => setName(e.target.value)} margin="normal" />
@@ -52,7 +52,7 @@ const Contact = () => {
             Submit
           </Button>
         </form>
-      </div>
+      </Container>
     </>
   );
 };

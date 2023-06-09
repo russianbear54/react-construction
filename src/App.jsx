@@ -15,7 +15,7 @@ function App() {
       <Grid item xs={12}>
         <Home />
       </Grid>
-      {/* <Grid item xs={12}>
+      <Grid item xs={12}>
         <Services />
       </Grid>
       <Grid item xs={12}>
@@ -23,7 +23,7 @@ function App() {
       </Grid>
       <Grid item xs={12}>
         <Testimonials />
-      </Grid> */}
+      </Grid>
       <Grid item xs={12}>
         <Contact />
       </Grid>

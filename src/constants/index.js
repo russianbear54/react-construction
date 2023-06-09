@@ -14,12 +14,10 @@ const headings = [
   { id: "services", title: "Our Services", description: "Explore the wide range of services that we offer." },
   { id: "projects", title: "Our Projects", description: "Browse through our recent and current endeavours." },
   { id: "testimonials", title: "Testimonials", description: "The reputation that we earned." },
-  { id: "contact", title: "Contact Us", description: "Lets get in rouch and start building dreams." },
+  { id: "contact", title: "Contact Us", description: "Lets get in touch and start building dreams." },
 ];
 
-const headings2 = {};
-
-// image: "../src/assets/images/services/generalConstruction/crew.jpg"
+const colors = { orange: "#db7a0a", green: "#3e7742" };
 
 const services = [
   {
@@ -43,7 +41,7 @@ const services = [
   {
     id: "consultation",
     heading: "Consultation",
-    text: "We are more than happy to share our knolege and let you learn",
+    text: "We are more than happy to share our knowledge and expertise.",
     image: "../src/assets/images/services/consultation/consult2.jpg",
   },
 ];
@@ -75,7 +73,7 @@ const testimonials = [
   },
 ];
 
-const projectsPreview = [
+const projectPreviews = [
   { id: 1, type: "Residential", image: "../src/assets/images/projects/houses/house2.jpg" },
   { id: 2, type: "Commercial", image: "../src/assets/images/projects/buildings/building4.jpg" },
   { id: 3, type: "Retail", image: "../src/assets/images/projects/retailCenters/retail6.jpg" },
@@ -112,4 +110,4 @@ const retailProjects = [
   { id: 6, type: "Strip Mall", location: "Barstow, CA", year: "2023", image: "../src/assets/images/projects/retailCenters/retail1.jpg" },
 ];
 
-export { navLinks, testimonials, residentialProjects, commercialProjects, retailProjects, projectsPreview, services, headings };
+export { navLinks, testimonials, residentialProjects, commercialProjects, retailProjects, projectPreviews, services, headings, colors };

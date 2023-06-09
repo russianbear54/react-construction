@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BackGround from "../assets/videos/worksite4.mp4";
+import { motion } from "framer-motion";
+import { styled } from "@mui/system";
+import StandingForExcellence from "../assets/logo/StandingForExcellence.svg";
+import Since2001 from "../assets/logo/Since2001.svg";
+
+const Motto = styled("img")(({ theme }) => ({
+  width: "100%",
+  height: "auto",
+  maxWidth: "300px",
+  alignSelf: "center",
+  [theme.breakpoints.up("sm")]: {
+    maxWidth: "250px",
+  },
+  [theme.breakpoints.up("md")]: {
+    maxWidth: "250px",
+  },
+  [theme.breakpoints.up("lg")]: {
+    maxWidth: "450px",
+  },
+}));
 
 const Home = () => {
   return (
     <>
-      <div className="flex justify-center">
+      <div id="home" className="flex justify-center position-relative">
         <video src={BackGround} type="video/mp4" autoPlay muted className="w-full" />
+        <motion.div className="absolute top-[15%] left-[25%]" initial={{ x: "-300%" }} animate={{ x: 0 }} transition={{ duration: 1.5 }}>
+          <Motto src={StandingForExcellence} alt="excellence" />
+        </motion.div>
+        <motion.div className="absolute bottom-[10%] right-[25%]" initial={{ x: "350%" }} animate={{ x: 0 }} transition={{ duration: 1.5 }}>
+          <Motto src={Since2001} alt="Since 2001" />
+        </motion.div>
       </div>
     </>
   );
