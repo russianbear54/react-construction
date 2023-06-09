@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "@mui/material/Button";
-import { projectsPreview } from "../constants/index";
+import { projectPreviews } from "../constants/index";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import Sheet from "@mui/joy/Sheet";
@@ -25,15 +25,16 @@ const ProjectPreview = ({ type, image }) => {
   }
 
   return (
-    <div className="flex md:flex-col md:mx-[1rem] md:items-center sm:flex-col sm:items-center">
+    <div className="flex md:flex-col md:mx-[1rem] md:items-center sm:mx-0 sm:flex-col sm:items-center 12PMP:flex-col ">
       <img
         src={image}
-        className="w-[40rem] h-[27rem] 2xl:w-[35rem] 2xl:h-[20rem] xl:w-[30rem] xl:h-[18rem] lg:w-[25rem] lg:h-[15rem] md:w-[20rem] md:h-[10rem] sm:w-[80%] sm:h-[100%] object-cover"
+        className="w-[40rem] h-[27rem] 2xl:w-[35rem] 2xl:h-[20rem] xl:w-[30rem] xl:h-[18rem] lg:w-[25rem] lg:h-[15rem] md:w-[25rem] md:h-[12rem] sm:h-[60%] object-cover 12PMP:h-[10rem]"
       />
       <p className="text-3xl text-black my-4">{type}</p>
       <Button variant="contained" onClick={() => setModalOpen(true)}>
         View Projects
       </Button>
+
       <Modal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
@@ -66,10 +67,10 @@ const Projects = () => {
   return (
     <>
       <SectionHeading title={headings[1].title} description={headings[1].description} />
-      <div id="projects" className="relative">
-        <video src={BackGround} type="video/mp4" autoPlay muted loop playsInline className="w-full sm:hidden" />
-        <div className="w-full flex xl:flex-row justify-center gap-[3rem]  top-1/3 sm:flex-col ">
-          {projectsPreview.map((projectPreview) => (
+      <div id="projects" className="relative h-screen">
+        <video src={BackGround} type="video/mp4" autoPlay muted loop className="absolute top-0 left-0 w-full h-full object-cover" />
+        <div className="absolute top-0 left-0 w-full h-full flex flex-col lg:flex-row justify-center items-center gap-[6rem] sm:gap-[1rem] z-10">
+          {projectPreviews.map((projectPreview) => (
             <ProjectPreview key={projectPreview.id} {...projectPreview} />
           ))}
         </div>
