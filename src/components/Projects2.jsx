@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "@mui/material/Button";
 import { projectPreviews } from "../constants/index";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
@@ -7,10 +8,8 @@ import BackGround from "../assets/videos/topView.mp4";
 import ProjectCarousel from "../components/ProjectCarousel";
 import SectionHeading from "./SectionHeading";
 import { headings } from "../constants";
-import ImageButton from "./ImageButton";
-import Box from "@mui/material/Box";
 
-const ProjectPreview = ({ type, image, id }) => {
+const ProjectPreview = ({ type, image }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   let component;
@@ -27,7 +26,14 @@ const ProjectPreview = ({ type, image, id }) => {
 
   return (
     <div className="flex md:flex-col md:mx-[1rem] md:items-center sm:mx-0 sm:flex-col sm:items-center 12PMP:flex-col ">
-      <ImageButton type={type} id={id} image={image} onClick={() => setModalOpen(true)} />
+      <img
+        src={image}
+        className="w-[40rem] h-[27rem] 2xl:w-[35rem] 2xl:h-[20rem] xl:w-[30rem] xl:h-[18rem] lg:w-[25rem] lg:h-[15rem] md:w-[25rem] md:h-[12rem] sm:h-[60%] object-cover 12PMP:h-[10rem]"
+      />
+      <p className="text-3xl text-black my-4">{type}</p>
+      <Button variant="contained" onClick={() => setModalOpen(true)}>
+        View Projects
+      </Button>
 
       <Modal
         open={modalOpen}
@@ -61,13 +67,13 @@ const Projects = () => {
   return (
     <>
       <SectionHeading title={headings[1].title} description={headings[1].description} />
-      <div id="projects" className="relative h-screen flex justify-center items-center">
+      <div id="projects" className="relative h-screen">
         <video src={BackGround} type="video/mp4" autoPlay muted loop className="absolute top-0 left-0 w-full h-full object-cover" />
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2rem", minWidth: 600, width: "100%", justifyContent: "center" }}>
+        <div className="absolute top-0 left-0 w-full h-full flex flex-col lg:flex-row justify-center items-center gap-[6rem] sm:gap-[1rem] z-10">
           {projectPreviews.map((projectPreview) => (
             <ProjectPreview key={projectPreview.id} {...projectPreview} />
           ))}
-        </Box>
+        </div>
       </div>
     </>
   );

@@ -49,6 +49,7 @@ const services = [
 const testimonials = [
   {
     id: 1,
+    rating: 5,
     testimonial: "StandFor did an amazing job repairing my office after the ED-209 incident.",
     name: "Dick Jones",
     designation: "Senior VP",
@@ -57,6 +58,7 @@ const testimonials = [
   },
   {
     id: 2,
+    rating: 5,
     testimonial: "My new wine cellar is out of this world!",
     name: "Sir Peter Wayland",
     designation: "Founder/CEO",
@@ -65,6 +67,7 @@ const testimonials = [
   },
   {
     id: 3,
+    rating: 4.5,
     testimonial: "The new book vault is devlishly good!",
     name: "Boris Balkan",
     designation: "Founder/CEO",

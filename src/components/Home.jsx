@@ -26,10 +26,18 @@ const Home = () => {
     <>
       <div id="home" className="flex justify-center position-relative">
         <video src={BackGround} type="video/mp4" autoPlay muted className="w-full" />
-        <motion.div className="absolute top-[15%] left-[25%]" initial={{ x: "-300%" }} animate={{ x: 0 }} transition={{ duration: 1.5 }}>
+        <motion.div
+          className="absolute lg:top-[15%] lg:left-[25%] md:left-[1%] "
+          initial={{ x: "-300%" }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1.5 }}>
           <Motto src={StandingForExcellence} alt="excellence" />
         </motion.div>
-        <motion.div className="absolute bottom-[10%] right-[25%]" initial={{ x: "350%" }} animate={{ x: 0 }} transition={{ duration: 1.5 }}>
+        <motion.div
+          className="absolute lg:bottom-[10%] lg:right-[25%] md:bottom-[60%] md:right-[10%]"
+          initial={{ x: "350%" }}
+          animate={{ x: 0 }}
+          transition={{ duration: 1.5 }}>
           <Motto src={Since2001} alt="Since 2001" />
         </motion.div>
       </div>
