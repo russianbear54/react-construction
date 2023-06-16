@@ -4,18 +4,11 @@ import { colors } from "../constants/index";
 
 const SectionHeading = ({ title, description }) => {
   return (
-    <Box sx={{ textAlign: "center", marginY: "5rem" }}>
-      <Typography
-        variant="h4"
-        component="h2"
-        fontWeight="italic"
-        fontFamily="Roboto"
-        color="white"
-        mb={1}
-        sx={{ background: colors.orange, transform: "skew(-20deg)", width: "20rem", margin: "auto" }}>
+    <Box sx={{ textAlign: "center", marginY: "5rem", width: "20rem", marginX: "auto", transform: "skew(-20deg)" }}>
+      <Typography variant="h5" sx={{ fontSize: { xs: 27, sm: 35 } }} fontWeight="italic" fontFamily="revert-layer" color={colors.orange}>
         {title}
       </Typography>
-      <Typography variant="body1" color={colors.green}>
+      <Typography variant="body1" sx={{ fontSize: { xs: 18, sm: 22 } }} fontFamily="revert-layer" color={colors.green} fontSize={20}>
         {description}
       </Typography>
     </Box>

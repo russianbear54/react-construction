@@ -5,6 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import StandForLogo from "../assets/logo/logo-transparent-svg.svg";
 import { navLinks } from "../constants";
 import { styled } from "@mui/system";
+import { colors } from "../constants/index";
 
 const Logo = styled("img")(({ theme }) => ({
   width: "100%",
@@ -62,7 +63,19 @@ const NavBar = () => {
           {navLinks.map((link) => (
             <ScrollLink to={link.id} spy={true} smooth={true} offset={-70} duration={500} key={link.id}>
               <Button
-                sx={{ minWidth: "7rem" }}
+                sx={{
+                  minWidth: "7rem",
+                  backgroundColor: colors.orange,
+                  "&:hover": {
+                    backgroundColor: colors.green,
+                    "@media (hover: none)": {
+                      backgroundColor: colors.green,
+                    },
+                  },
+                  "&:active": {
+                    backgroundColor: colors.green,
+                  },
+                }}
                 variant="contained"
                 onClick={() => {
                   setActive(link.value);

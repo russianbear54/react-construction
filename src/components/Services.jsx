@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, CardContent, CardMedia, Typography, Grid, Container } from "@mui/material";
 import { services, headings } from "../constants";
 import SectionHeading from "./SectionHeading";
+import { colors } from "../constants/index";
 
 const Service = ({ id, heading, text, image }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -20,6 +21,9 @@ const Service = ({ id, heading, text, image }) => {
         height: { lg: "35rem", sm: "20rem" },
         position: "relative",
         overflow: "hidden",
+        backgroundColor: colors.green,
+        color: "white",
+        margin: "auto",
       }}>
       <Typography variant="h5">{heading}</Typography>
       <CardMedia
@@ -30,7 +34,6 @@ const Service = ({ id, heading, text, image }) => {
           marginTop: "1rem",
           width: { sm: "15rem", lg: "31rem" },
           height: { sm: "15rem", lg: "31rem" },
-          // opacity: isHovered ? 0.5 : 1,
           filter: isHovered ? "grayscale(100%)" : "none",
           transition: "background-color 0.3s ease",
         }}
@@ -57,18 +60,18 @@ const Service = ({ id, heading, text, image }) => {
 
 const Services = () => {
   return (
-    <div id="services">
+    <>
       <SectionHeading title={headings[0].title} description={headings[0].description} />
-      <Container sx={{ display: "flex", justifyContent: "center" }}>
-        <Grid container spacing={2}>
+      <div id="services">
+        <Grid container spacing={3} sx={{ width: { lg: "50vw" }, marginX: "auto" }}>
           {services.map((service) => (
             <Grid item key={service.id} xs={12} sm={6} md={6} lg={6}>
               <Service {...service} />
             </Grid>
           ))}
         </Grid>
-      </Container>
-    </div>
+      </div>
+    </>
   );
 };
 

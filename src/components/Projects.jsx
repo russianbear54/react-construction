@@ -9,36 +9,25 @@ import SectionHeading from "./SectionHeading";
 import { headings } from "../constants";
 import ImageButton from "./ImageButton";
 import Box from "@mui/material/Box";
+import { colors } from "../constants/index";
 
 const ProjectPreview = ({ type, image, id }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
-  let component;
-
-  if (type === "Residential") {
-    component = <ProjectCarousel type="Residential" />;
-  }
-  if (type === "Commercial") {
-    component = <ProjectCarousel type="Commercial" />;
-  }
-  if (type === "Retail") {
-    component = <ProjectCarousel type="Retail" />;
-  }
-
   return (
-    <div className="flex md:flex-col md:mx-[1rem] md:items-center sm:mx-0 sm:flex-col sm:items-center 12PMP:flex-col ">
+    <Box sx={{ display: "flex", justifyContent: "center", width: { md: 750, sm: 650, xs: 400 }, margin: "auto" }}>
       <ImageButton type={type} id={id} image={image} onClick={() => setModalOpen(true)} />
-
       <Modal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center", margin: "auto", width: "70%" }}>
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center", margin: "auto", width: "50%" }}>
         <Sheet
           variant="outlined"
           sx={{
             borderRadius: "md",
             p: 3,
             boxShadow: "lg",
+            bgcolor: colors.green,
           }}>
           <ModalClose
             variant="outlined"
@@ -50,10 +39,10 @@ const ProjectPreview = ({ type, image, id }) => {
               bgcolor: "background.body",
             }}
           />
-          {component}
+          <ProjectCarousel type={type} />
         </Sheet>
       </Modal>
-    </div>
+    </Box>
   );
 };
 
@@ -61,9 +50,9 @@ const Projects = () => {
   return (
     <>
       <SectionHeading title={headings[1].title} description={headings[1].description} />
-      <div id="projects" className="relative h-screen flex justify-center items-center">
+      <div id="projects" className="relative flex justify-center items-center">
         <video src={BackGround} type="video/mp4" autoPlay muted loop className="absolute top-0 left-0 w-full h-full object-cover" />
-        <Box sx={{ display: "flex", flexDirection: "column", gap: "2rem", minWidth: 600, width: "100%", justifyContent: "center" }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "2rem", justifyContent: "center" }}>
           {projectPreviews.map((projectPreview) => (
             <ProjectPreview key={projectPreview.id} {...projectPreview} />
           ))}

@@ -3,6 +3,7 @@ import { TextField, Button, Container } from "@mui/material";
 import SectionHeading from "./SectionHeading";
 import { headings } from "../constants";
 import craneFeet from "../assets/images/scenery/craneFeet.jpg";
+import { colors } from "../constants";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -16,7 +17,6 @@ const Contact = () => {
     console.log("Email:", email);
     console.log("Message:", message);
 
-    // Reset form fields
     setName("");
     setEmail("");
     setMessage("");
@@ -48,7 +48,7 @@ const Contact = () => {
             onChange={(e) => setMessage(e.target.value)}
             margin="normal"
           />
-          <Button type="submit" variant="contained" color="primary">
+          <Button type="submit" variant="contained" sx={{ backgroundColor: colors.orange }}>
             Submit
           </Button>
         </form>
