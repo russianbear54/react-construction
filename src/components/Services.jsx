@@ -63,7 +63,7 @@ const Services = () => {
     <>
       <SectionHeading title={headings[0].title} description={headings[0].description} />
       <div id="services">
-        <Grid container spacing={3} sx={{ width: { lg: "50vw" }, marginX: "auto" }}>
+        <Grid container spacing={3}>
           {services.map((service) => (
             <Grid item key={service.id} xs={12} sm={6} md={6} lg={6}>
               <Service {...service} />

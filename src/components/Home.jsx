@@ -24,10 +24,10 @@ const Motto = styled("img")(({ theme }) => ({
 const Home = () => {
   return (
     <>
-      <div id="home" className="flex justify-center position-relative">
+      <div id="home">
         <video src={BackGround} type="video/mp4" autoPlay muted className="w-full" />
         <motion.div
-          className="absolute lg:top-[15%] lg:left-[25%] md:left-[6%] md:top-[12%] 12PMP:top-[10%] 12PMLS:top-[22%]"
+          className="absolute lg:top-[15%] lg:left-[25%] md:left-[3%] md:top-[15%] 12PMP:top-[10%] 12PMLS:top-[22%]"
           initial={{ x: "-300%" }}
           animate={{ x: 0 }}
           transition={{ duration: 1.5 }}>
